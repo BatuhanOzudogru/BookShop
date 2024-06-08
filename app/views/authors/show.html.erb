@@ -1,0 +1,31 @@
+<div class="container mx-auto px-4">
+  <div class="mt-8">
+    <p class="text-lg font-semibold">
+      <strong>Name:</strong>
+      <%= @author.name %>
+    </p>
+    <p class="text-lg font-semibold">
+      <strong>Surname:</strong>
+      <%= @author.surname %>
+    </p>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4">Books</h2>
+
+  <div class="mt-4">
+    <%= link_to 'New Book', new_author_book_path(@author), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+  </div>
+
+  <ul class="list-disc pl-4 mt-4">
+    <% @author.books.each do |book| %>
+      <li class="text-lg font-medium mt-2">
+        <%= link_to book.title, book, class: 'text-blue-500 hover:underline' %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="mt-8">
+    <%= link_to 'Edit', edit_author_path(@author), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded' %>
+    <%= link_to 'Back', authors_path, class: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-2' %>
+  </div>
+</div>
